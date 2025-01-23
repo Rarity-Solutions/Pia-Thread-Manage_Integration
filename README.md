@@ -322,27 +322,47 @@ Note: This action will stop the Magic Agent from running in Thread.
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/fe80ce3b-85da-4bc7-9d34-0ae51bfbebd8/user_cropped_screenshot.jpeg?tl_px=498,408&br_px=1210,806&force_format=jpeg&q=100&width=712&wat_scale=63&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=265,221)
 
 
-50\. For Testing: Log into Thread Admin and click "Magic AI".
+50\. Click "Save".
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-23/aaa6f2b1-7a3e-44bb-96e4-7b8f2a65306a/user_cropped_screenshot.jpeg?tl_px=1098,0&br_px=1896,445&force_format=jpeg&q=100&width=797&wat_scale=71&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=682,16)
+
+
+51\. Click "Magic AI".
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/99835ed9-56e6-4499-b450-cb1ace6339e8/user_cropped_screenshot.jpeg?tl_px=0,18&br_px=180,415&force_format=jpeg&q=100&width=277&wat_scale=24&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=108,297)
 
 
-51\. Click "Agent".
+52\. Click "Categorization".
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-23/ae4d1648-28f3-4461-a531-c065bf61e8b0/user_cropped_screenshot.jpeg?tl_px=0,0&br_px=797,445&force_format=jpeg&q=100&width=797&wat_scale=71&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=393,61)
+
+
+53\. Select the "Service Board".
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-23/ef94b9fc-188a-4031-b468-5743522d6ff2/user_cropped_screenshot.jpeg?tl_px=59,0&br_px=960,503&force_format=jpeg&q=100&width=901&wat_scale=80&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=421,204)
+
+
+54\. Update the "Definitions" for the Types created Manage.
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-23/9f2a10f8-eb2b-474a-8851-4a32a4004401/user_cropped_screenshot.jpeg?tl_px=28,436&br_px=931,941&force_format=jpeg&q=100&width=902&wat_scale=80&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=422,376)
+
+
+55\. Click "Agent".
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/eeb14a08-ba5a-4674-bee8-7a1098384774/ascreenshot.jpeg?tl_px=0,0&br_px=589,329&force_format=jpeg&q=100&width=590&wat_scale=52&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=474,47)
 
 
-52\. Click "Create Intent".
+56\. Click "Create Intent".
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/e1bfb023-4ccf-4989-a42f-394223c1185f/ascreenshot.jpeg?tl_px=1202,119&br_px=1913,517&force_format=jpeg&q=100&width=712&wat_scale=63&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=299,154)
 
 
-53\. Click the Intent name field and enter "Pia-Thread Automation".
+57\. Click the Intent name field and enter "Pia-Thread Automation".
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/ac0540e4-d9e1-4d24-98ac-858ae7edbab2/user_cropped_screenshot.jpeg?tl_px=69,0&br_px=662,331&force_format=jpeg&q=100&width=594&wat_scale=53&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=277,13)
 
 
-54\. Click in the "Describe the intent" field and update it to:\
+58\. Click in the "Describe the intent" field and update it to:\
 \
 "Example intent to start a Pia automation. Ask each question individually so it's easier for the user to answer."
 
@@ -351,60 +371,60 @@ Note: This should be customized in your future intents.
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/3326b0a4-31ad-48e4-973e-6f5e19207ce6/user_cropped_screenshot.jpeg?tl_px=758,0&br_px=1409,363&force_format=jpeg&q=100&width=650&wat_scale=58&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=304,122)
 
 
-55\. Select the client to target.
+59\. Select the client to target.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/c91fc4d7-6c48-43d3-a9df-1fdcf1184f7f/user_cropped_screenshot.jpeg?tl_px=757,193&br_px=1408,556&force_format=jpeg&q=100&width=650&wat_scale=58&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=304,160)
 
 
-56\. Click "Save".
+60\. Click "Save".
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/ae51ac4b-1fbf-431c-b5d6-c0ee129bb0ba/ascreenshot.jpeg?tl_px=1208,0&br_px=1920,397&force_format=jpeg&q=100&width=712&wat_scale=63&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=605,14)
 
 
-57\. Click "Add form field" and add a few questions to be captured in the automation.
+61\. Click "Add form field" and add a few questions to be captured in the automation.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/4ff82b4f-536b-4b3c-8c2b-37000fd23e02/ascreenshot.jpeg?tl_px=530,443&br_px=1428,945&force_format=jpeg&q=100&width=897&wat_scale=80&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=280,302)
 
 
-58\. Type "The automation will start and the ticket will be escalated for verification." in the "External Reply" field.\
+62\. Type "The automation will start and the ticket will be escalated for verification." in the "External Reply" field.\
 \
 Type "Add everything collected from the user to the ticket." in the "Internal Reply" field.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/af1ba929-b7f1-41e6-aba9-f8e3dbc477ac/screenshot.jpeg?tl_px=518,124&br_px=1426,631&force_format=jpeg&q=100&width=907)
 
 
-59\. Make sure it's turned "On" and click "Save".
+63\. Make sure it's turned "On" and click "Save".
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/ec68a0e9-d1b9-4b93-b4d4-415860a4a53e/ascreenshot.jpeg?tl_px=1208,0&br_px=1920,397&force_format=jpeg&q=100&width=712&wat_scale=63&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=587,11)
 
 
-60\. Click "New Request".
+64\. Click "New Request".
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/e2f4f704-cff3-4c25-8903-3138a0ff289f/user_cropped_screenshot.jpeg?tl_px=0,3&br_px=302,505&force_format=jpeg&q=100&width=537&wat_scale=47&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=212,785)
 
 
-61\. Type "Start a Pia automation" and answer any questions entered from above.
+65\. Type "Start a Pia automation" and answer any questions entered from above.
 
 Note: The Magic Agent AI Auto-Categorizing will automatically change the Type/Subtype based on the settings configured above.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/f4356643-2df4-4269-8e72-44581c76bb5e/user_cropped_screenshot.jpeg?tl_px=0,0&br_px=301,484&force_format=jpeg&q=100&width=539&wat_scale=48&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=167,767)
 
 
-62\. Log into Thread Inbox and look at verify the automation completed successfully. Sometimes you must click "Sync thread with PSA" to pull in the latest changes from Manage written by Pia.
+66\. Log into Thread Inbox and look at verify the automation completed successfully.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/d2a4585e-81c9-479e-8489-6c78c9c9c4cc/screenshot.jpeg?tl_px=0,0&br_px=1103,2482&force_format=jpeg&q=100&width=498)
 
 
-63\. Log into Manage and select the "Start a Pia automation" ticket.
+67\. Log into Manage and select the "Start a Pia automation" ticket.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/4abc7c3b-43c7-4243-9797-3077689fcdf5/user_cropped_screenshot.jpeg?tl_px=0,0&br_px=982,549&force_format=jpeg&q=100&width=983&wat_scale=87&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=684,315)
 
 
-64\. Here you can see the internal note that Thread wrote with the captured arguments.
+68\. Here you can see the internal note that Thread wrote with the captured arguments.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/59aff408-660a-4dab-8e3a-8ef0ce748aed/user_cropped_screenshot.jpeg?tl_px=0,0&br_px=813,254&force_format=jpeg&q=100)
 
 
-65\. Here you can see the Pia scraped the ticket for the arguments written by Thread Magic Agent and returned the results in a new note.
+69\. Here you can see the Pia scraped the ticket for the arguments written by Thread Magic Agent and returned the results in a new note.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2025-01-20/de79afbb-1661-44d8-b562-f05b262dcbf5/user_cropped_screenshot.jpeg?tl_px=0,0&br_px=805,367&force_format=jpeg&q=100)
