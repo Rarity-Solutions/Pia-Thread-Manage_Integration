@@ -1,0 +1,53 @@
+# Thread: Get Note Details
+conditions:
+- name: 'system_ticketing'
+  entity: 'ticket'
+  action: 'updated'
+  filter: 'ticket.subType.name == "Start"'
+  instancing: 'single'
+  delay_seconds: 30
+
+- name: 'client_filter'
+  optMode: 'OptOut'
+  category: 'Rarity Solutions'
+
+- name: chat
+  option_button: 'Thread: Get Note Details'
+  option_text: 'Thread: Get Note Details'
+  option_category: 'Rarity Solutions'
+
+# Steps
+# Activity - Get Note Details
+steps:
+- task: get_note_details
+  alias: 'getNoteDetails'
+
+# Add more tasks here
+
+# Set Ticket Type and Subtype to prevent automation from running again
+# Close the ticket after automation
+- task: update_ticket
+  alias: 'updateTicket'
+  inputs:
+    ticket_id: $Ctx_Ticket_Id
+    type_id: '306'  # Pia Completed
+    subtype_id: '422'  # End
+#    status_id: '17'  # Close ticket
+
+# Create new note with details written by Thread
+- task: system_audit_note
+  inputs:
+    Content: |
+      Updated ticket type to "Pia Completed" and subtype to "End"
+      
+      Found Arguments:
+      {=getNoteDetails.details}
+
+# Update the Chatbox details written by Thread
+- task: chat_interaction
+  inputs:
+    text: |
+      Updated ticket type to "Pia Completed" and subtype to "End"
+      
+      Found Arguments:
+      {=getNoteDetails.details}

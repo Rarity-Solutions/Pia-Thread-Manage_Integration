@@ -1,0 +1,252 @@
+# Thread: Get Ticket Type, Subtype, and Status IDs
+conditions:
+- name: 'client_filter'
+  entity: 'ticket'
+  optMode: 'OptOut'
+  category: 'Ticket Management'
+
+- name: 'chat'
+  option_button: 'Thread: Get Ticket Type, Subtype, and Status IDs'
+  option_text: 'Thread: Get Ticket Type, Subtype, and Status IDs'
+  option_category: 'Rarity Solutions'
+
+steps:
+# Get ticket details including board ID
+- task: inline_powershell
+  alias: 'get_ticket'
+  inputs:
+    CW_Api_Url: $CW_Api_Url
+    CW_Api_Token: $CW_Api_Token
+    CW_Api_Client_Id: $CW_Api_Client_Id
+    ticketId: $Ctx_Ticket_Id
+    script: |
+      # Get ticket details to retrieve board ID and current type/subtype
+      $url = "$CW_Api_Url/apis/3.0/service/tickets/$ticketId"
+      Write-Host "Getting ticket details from: $url"
+      
+      $request = [System.Net.HttpWebRequest]::Create($url)
+      $request.Method = "GET"
+      $request.ContentType = "application/json"
+      $request.Accept = "application/vnd.connectwise.com+json; version=2024.13"
+      $authBytes = [System.Text.Encoding]::UTF8.GetBytes($CW_Api_Token)
+      $request.Headers["Authorization"] = "Basic " + [Convert]::ToBase64String($authBytes)
+      $request.Headers["clientId"] = $CW_Api_Client_Id
+
+      try {
+          $response = $request.GetResponse()
+          $reader = New-Object System.IO.StreamReader($response.GetResponseStream())
+          $ticket = ConvertFrom-Json $reader.ReadToEnd()
+          $response.Dispose()
+          
+          Write-Host "Retrieved ticket. Board ID: $($ticket.board.id)"
+          Write-Host "Current type: $($ticket.type.name)"
+          Write-Host "Current subtype: $($ticket.subType.name)"
+          
+          return @{ 
+              success = $true
+              boardId = $ticket.board.id
+              currentType = $ticket.type.name
+              currentSubType = $ticket.subType.name
+          }
+      }
+      catch {
+          Write-Error "Error getting ticket: $_"
+          return @{ success = $false; error = $_.Exception.Message }
+      }
+
+# Get all types, subtypes, and statuses
+- task: inline_powershell
+  alias: 'list_types_and_subtypes'
+  inputs:
+    CW_Api_Url: $CW_Api_Url
+    CW_Api_Token: $CW_Api_Token
+    CW_Api_Client_Id: $CW_Api_Client_Id
+    boardId: =get_ticket.boardId
+    script: |
+      # Function to retrieve all types with pagination
+      Function Get-AllTypes($baseUrl, $boardId) {
+          $pageSize = 1000
+          $page = 1
+          $allTypes = @()
+          
+          do {
+              $url = "${baseUrl}/apis/3.0/service/boards/${boardId}/types?pageSize=${pageSize}&page=${page}"
+              Write-Host "Requesting types page ${page}"
+              
+              $request = [System.Net.HttpWebRequest]::Create($url)
+              $request.Method = "GET"
+              $request.ContentType = "application/json"
+              $request.Accept = "application/vnd.connectwise.com+json; version=2024.13"
+              $authBytes = [System.Text.Encoding]::UTF8.GetBytes($CW_Api_Token)
+              $request.Headers["Authorization"] = "Basic " + [Convert]::ToBase64String($authBytes)
+              $request.Headers["clientId"] = $CW_Api_Client_Id
+
+              try {
+                  $response = $request.GetResponse()
+                  $reader = New-Object System.IO.StreamReader($response.GetResponseStream())
+                  $types = ConvertFrom-Json $reader.ReadToEnd()
+                  $response.Dispose()
+                  
+                  if ($types.Count -eq 0) { break }
+                  
+                  $allTypes += $types
+                  $page++
+              }
+              catch {
+                  Write-Error "Error getting types page ${page}: ${errorMessage}"
+                  break
+              }
+          } while ($true)
+          
+          return $allTypes
+      }
+
+      # Function to retrieve all statuses with pagination
+      Function Get-AllStatuses($baseUrl, $boardId) {
+          $pageSize = 1000
+          $page = 1
+          $allStatuses = @()
+          
+          do {
+              $url = "${baseUrl}/apis/3.0/service/boards/${boardId}/statuses?pageSize=${pageSize}&page=${page}"
+              Write-Host "Requesting statuses page ${page}"
+              
+              $request = [System.Net.HttpWebRequest]::Create($url)
+              $request.Method = "GET"
+              $request.ContentType = "application/json"
+              $request.Accept = "application/vnd.connectwise.com+json; version=2024.13"
+              $authBytes = [System.Text.Encoding]::UTF8.GetBytes($CW_Api_Token)
+              $request.Headers["Authorization"] = "Basic " + [Convert]::ToBase64String($authBytes)
+              $request.Headers["clientId"] = $CW_Api_Client_Id
+
+              try {
+                  $response = $request.GetResponse()
+                  $reader = New-Object System.IO.StreamReader($response.GetResponseStream())
+                  $statuses = ConvertFrom-Json $reader.ReadToEnd()
+                  $response.Dispose()
+                  
+                  if ($statuses.Count -eq 0) { break }
+                  
+                  $allStatuses += $statuses
+                  $page++
+              }
+              catch {
+                  Write-Error "Error getting statuses page ${page}: ${errorMessage}"
+                  break
+              }
+          } while ($true)
+          
+          return $allStatuses
+      }
+
+      # Function to retrieve all subtypes with pagination
+      Function Get-AllSubTypes($baseUrl, $boardId) {
+          $pageSize = 1000
+          $page = 1
+          $allSubTypes = @()
+          
+          do {
+              $url = "${baseUrl}/apis/3.0/service/boards/${boardId}/subtypes?pageSize=${pageSize}&page=${page}"
+              Write-Host "Requesting subtypes page ${page}"
+              
+              $request = [System.Net.HttpWebRequest]::Create($url)
+              $request.Method = "GET"
+              $request.ContentType = "application/json"
+              $request.Accept = "application/vnd.connectwise.com+json; version=2024.13"
+              $authBytes = [System.Text.Encoding]::UTF8.GetBytes($CW_Api_Token)
+              $request.Headers["Authorization"] = "Basic " + [Convert]::ToBase64String($authBytes)
+              $request.Headers["clientId"] = $CW_Api_Client_Id
+
+              try {
+                  $response = $request.GetResponse()
+                  $reader = New-Object System.IO.StreamReader($response.GetResponseStream())
+                  $subTypes = ConvertFrom-Json $reader.ReadToEnd()
+                  $response.Dispose()
+                  
+                  if ($subTypes.Count -eq 0) { break }
+                  
+                  $allSubTypes += $subTypes
+                  $page++
+              }
+              catch {
+                  Write-Error "Error getting subtypes page ${page}: ${errorMessage}"
+                  break
+              }
+          } while ($true)
+          
+          return $allSubTypes
+      }
+
+      # Main execution block
+      try {
+          # Get and process all types
+          Write-Host "`n=== Getting Types ===`n"
+          $types = Get-AllTypes -baseUrl $CW_Api_Url -boardId $boardId
+          
+          Write-Host "`nAll available types ($($types.Count) total):"
+          $typesList = $types | Sort-Object -Property name | ForEach-Object {
+              "- $($_.name) (ID: $($_.id))"
+          }
+          $typesList | ForEach-Object { Write-Host $_ }
+
+          # Get and process all subtypes
+          Write-Host "`n=== Getting Subtypes ===`n"
+          $subTypes = Get-AllSubTypes -baseUrl $CW_Api_Url -boardId $boardId
+          
+          Write-Host "`nAll available subtypes ($($subTypes.Count) total):"
+          $subTypesList = $subTypes | Sort-Object -Property name | ForEach-Object {
+              "- $($_.name) (ID: $($_.id))"
+          }
+          $subTypesList | ForEach-Object { Write-Host $_ }
+
+          # Get and process all statuses
+          Write-Host "`n=== Getting Statuses ===`n"
+          $statuses = Get-AllStatuses -baseUrl $CW_Api_Url -boardId $boardId
+          
+          Write-Host "`nAll available statuses ($($statuses.Count) total):"
+          $statusesList = $statuses | Sort-Object -Property name | ForEach-Object {
+              "- $($_.name) (ID: $($_.id))"
+          }
+          $statusesList | ForEach-Object { Write-Host $_ }
+          
+          return @{ 
+              success = $true
+              typesOutput = $typesList -join "`n"
+              subtypesOutput = $subTypesList -join "`n"
+              statusesOutput = $statusesList -join "`n"
+          }
+      }
+      catch {
+          Write-Error "Error: $_"
+          return @{ success = $false; error = $_.Exception.Message }
+      }
+
+# Create note with results
+- task: system_audit_note
+  inputs:
+    Content: |
+      Retrieved available types, subtypes, and statuses for board ID {=get_ticket.boardId}
+      
+      Types:
+      {=list_types_and_subtypes.typesOutput}
+      
+      Subtypes:
+      {=list_types_and_subtypes.subtypesOutput}
+      
+      Statuses:
+      {=list_types_and_subtypes.statusesOutput}
+
+# Display results in chat
+- task: chat_interaction
+  inputs:
+    text: |
+      Retrieved all available types, subtypes, and statuses:
+      
+      Types:
+      {=list_types_and_subtypes.typesOutput}
+      
+      Subtypes:
+      {=list_types_and_subtypes.subtypesOutput}
+      
+      Statuses:
+      {=list_types_and_subtypes.statusesOutput}
